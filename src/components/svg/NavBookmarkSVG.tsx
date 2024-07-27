@@ -1,6 +1,6 @@
 import type { SVGProps } from "./SVGProps"
 
-const BookmarkEmptySVG = ({
+const NavBookmarkSVG = ({
   width = "17",
   height = "20",
   className,
@@ -21,4 +21,4 @@ const BookmarkEmptySVG = ({
   )
 }
 
-export default BookmarkEmptySVG
+export default NavBookmarkSVG
