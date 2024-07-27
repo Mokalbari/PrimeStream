@@ -1,0 +1,45 @@
+{
+  "name": "react-typescript-tailwind-template",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "npx @biomejs/biome lint ./src",
+    "format": "prettier --write 'src/**/*.{ts,tsx,js,jsx,css,scss,md}'",
+    "preview": "vite preview",
+    "test": "vitest",
+    "prepare": "husky && husky install"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3",
+    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "husky": "^9.1.1",
+    "jsdom": "^24.1.0",
+    "lint-staged": "^15.2.7",
+    "postcss": "^8.4.39",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.5",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.4",
+    "vitest": "^2.0.3"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,css,scss,md}": [
+      "prettier --write",
+      "biome lint --write --no-errors-on-unmatched"
+    ]
+  }
+}
