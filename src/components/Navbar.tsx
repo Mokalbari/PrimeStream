@@ -7,7 +7,7 @@ import NavTVShowSVG from "./svg/NavTVShowSVG"
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center justify-between rounded-xl bg-darkGrey p-4 sm:m-6 sm:p-6 lg:m-8 lg:min-h-[90vh] lg:w-fit lg:flex-col lg:justify-normal">
+    <nav className="flex items-center justify-between rounded-xl bg-darkGrey p-4 sm:m-6 sm:p-6 lg:sticky lg:top-8 lg:m-8 lg:max-h-[90vh] lg:w-fit lg:flex-col lg:justify-normal">
       <HomeSVG className="lg:mb-20" />
       <menu className="flex gap-6 sm:gap-8 lg:flex-1 lg:flex-col">
         <li>
