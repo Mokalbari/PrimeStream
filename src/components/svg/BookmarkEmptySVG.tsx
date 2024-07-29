@@ -1,12 +1,18 @@
 import type { SVGProps } from "./SVGProps"
 
+type clickableSVGProps = SVGProps & {
+  onClick: () => void
+}
+
 const BookmarkEmptySVG = ({
   width = "12",
   height = "14",
   className,
-}: SVGProps) => {
+  onClick,
+}: clickableSVGProps) => {
   return (
     <svg
+      onClick={onClick}
       width={width}
       height={height}
       className={className || ""}
