@@ -4,8 +4,10 @@ import SearchBar from "./components/SearchBar"
 const App = () => {
   return (
     <>
-      <Navbar />
-      <SearchBar />{" "}
+      <div className="lg:flex">
+        <Navbar />
+        <SearchBar />{" "}
+      </div>
     </>
   )
 }
