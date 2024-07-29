@@ -1,23 +1,36 @@
 import SmallCard from "./SmallCard"
+import type { APIDataType } from "./types/APIDataType"
 
 type Props = {
   title: string
+  loading: boolean
+  data: APIDataType[] | null
 }
-
-const DisplaySelectionSection = ({ title = "Recommanded for you" }: Props) => {
+const DisplaySelectionSection = ({ data, loading, title }: Props) => {
   return (
     <section className="mx-4 mt-8 sm:mx-6 lg:mx-8">
       <h2 className="mb-6 text-2xl">{title}</h2>
-      <div className="lg:gap grid w-full grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 lg:gap-8">
-        <SmallCard />
-        <SmallCard />
-        <SmallCard />
-        <SmallCard />
-        <SmallCard />
-        <SmallCard />
-        <SmallCard />
-        <SmallCard />
-      </div>
+      <ul className="lg:gap grid w-full grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 lg:gap-8">
+        {loading ? (
+          <p>loading...</p>
+        ) : (
+          data
+            ?.filter(item => !item.isTrending)
+            .map(item => (
+              <li key={item.title}>
+                <SmallCard
+                  title={item.title}
+                  thumbnailSmall={item.thumbnail.regular.small}
+                  thumbnailMedium={item.thumbnail.regular.medium}
+                  thumbnailLarge={item.thumbnail.regular.large}
+                  year={item.year}
+                  rating={item.rating}
+                  category={item.category}
+                />{" "}
+              </li>
+            ))
+        )}
+      </ul>
     </section>
   )
 }
