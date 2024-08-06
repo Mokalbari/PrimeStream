@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 import HomeSVG from "./svg/HomeSVG"
 import NavBookmarkSVG from "./svg/NavBookmarkSVG"
 import NavHomeSVG from "./svg/NavHomeSVG"
@@ -8,23 +8,36 @@ import avatar from "../../public/image-avatar.png"
 
 const Navbar = () => {
   const navigate = useNavigate()
+  const location = useLocation()
+
+  const isActive = (path: string) => location.pathname === path
 
   return (
     <nav className="flex items-center justify-between rounded-xl bg-darkGrey p-4 sm:m-6 sm:p-6 lg:sticky lg:top-8 lg:m-8 lg:max-h-[90vh] lg:w-fit lg:flex-col lg:justify-normal">
       <HomeSVG className="lg:mb-20" />
       <menu className="flex gap-6 sm:gap-8 lg:flex-1 lg:flex-col">
         <li onClick={() => navigate("/")}>
-          <NavHomeSVG />{" "}
+          <NavHomeSVG
+            className={isActive("/") ? "text-white" : "text-lightGrey"}
+          />{" "}
         </li>
         <li onClick={() => navigate("/movies")}>
-          <NavMoviesSVG />{" "}
+          <NavMoviesSVG
+            className={isActive("/movies") ? "text-white" : "text-lightGrey"}
+          />{" "}
         </li>
         <li onClick={() => navigate("/tv-series")}>
           {" "}
-          <NavTVShowSVG />
+          <NavTVShowSVG
+            className={isActive("/tv-series") ? "text-white" : "text-lightGrey"}
+          />
         </li>
         <li onClick={() => navigate("/bookmarked")}>
-          <NavBookmarkSVG />{" "}
+          <NavBookmarkSVG
+            className={
+              isActive("/bookmarked") ? "text-white" : "text-lightGrey"
+            }
+          />{" "}
         </li>
       </menu>
       <img src={avatar} alt="current user" className="w-6 sm:w-9" />
