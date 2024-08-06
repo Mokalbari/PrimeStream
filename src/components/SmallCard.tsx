@@ -42,13 +42,14 @@ const SmallCard = ({
         </div>
       </picture>
       <div>
-        <p className="my-1 text-xs font-light opacity-75">
-          {year} ·{" "}
+        <p className="my-1 flex items-center gap-1 text-xs font-light opacity-75">
+          {year} ·{"   "}
           {category === "Movie" ? (
             <MovieSVG className="inline" />
           ) : (
             <TVShowSVG className="inline" />
-          )}{" "}
+          )}
+          {"   "}
           {category} · {rating}
         </p>
         <h3 className="text-sm font-medium sm:text-xl">{title}</h3>

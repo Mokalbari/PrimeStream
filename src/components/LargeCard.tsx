@@ -3,6 +3,7 @@ import BookmarkEmptySVG from "./svg/BookmarkEmptySVG"
 import BookmarkFullSVG from "./svg/BookmarkFullSVG"
 import MovieSVG from "./svg/MovieSVG"
 import TVShowSVG from "./svg/TVShowSVG"
+import "./styles/LargeCard.css"
 
 type Props = {
   title: string
@@ -25,7 +26,7 @@ const LargeCard = ({
   const handleClick = () => setIsFavorite(!isFavorite)
 
   return (
-    <div className="relative w-fit">
+    <div className="large-card relative w-fit">
       <picture className="">
         <source srcSet={thumbnailLarge} media="(min-width: 640px)" />
         <img className="mb-2 rounded-xl" src={thumbnailSmall} alt={title} />
@@ -36,8 +37,8 @@ const LargeCard = ({
             <BookmarkEmptySVG onClick={handleClick} className="z-10" />
           )}
         </div>
-        <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 lg:bottom-8 lg:left-8">
-          <p className="text-xs font-light opacity-75 sm:text-sm">
+        <div className="absolute bottom-4 left-4 z-20 sm:bottom-6 sm:left-6 lg:bottom-8 lg:left-8">
+          <p className="flex items-center gap-1 text-xs font-light opacity-75 sm:text-sm">
             {year} ·{" "}
             {category === "Movie" ? (
               <MovieSVG className="inline" />
