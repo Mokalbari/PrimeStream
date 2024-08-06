@@ -8,6 +8,8 @@ const Home = () => {
 
   return (
     <>
+      {console.log(primeStreamSelection)}
+      {console.log(primeStreamSelection)}
       <DisplayHorizontalSection title="Trending" data={primeStreamSelection} />
       <DisplaySelectionSection
         title="Recommended for you"

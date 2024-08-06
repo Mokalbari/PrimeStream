@@ -5,6 +5,9 @@ import App from "./App.tsx"
 import "./index.css"
 import fetchLocalApi from "./components/functions/fetchLocapApi.tsx"
 import Home from "./pages/Home.tsx"
+import Movies from "./pages/Movies.tsx"
+import TVSeries from "./pages/TVSeries.tsx"
+import Bookmarked from "./pages/Bookmarked.tsx"
 
 const router = createBrowserRouter([
   {
@@ -14,6 +17,21 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: () => fetchLocalApi("http://localhost:4903/"),
+      },
+      {
+        path: "/movies",
+        element: <Movies />,
+        loader: () => fetchLocalApi("http://localhost:4903/movies"),
+      },
+      {
+        path: "/tv-series",
+        element: <TVSeries />,
+        loader: () => fetchLocalApi("http://localhost:4903/tvseries"),
+      },
+      {
+        path: "/bookmarked",
+        element: <Bookmarked />,
         loader: () => fetchLocalApi("http://localhost:4903/"),
       },
     ],
