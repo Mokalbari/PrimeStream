@@ -8,6 +8,7 @@ import Home from "./pages/Home.tsx"
 import Movies from "./pages/Movies.tsx"
 import TVSeries from "./pages/TVSeries.tsx"
 import Bookmarked from "./pages/Bookmarked.tsx"
+import Query from "./pages/Query.tsx"
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,12 @@ const router = createBrowserRouter([
         path: "/bookmarked",
         element: <Bookmarked />,
         loader: () => fetchLocalApi("http://localhost:4903/"),
+      },
+      {
+        path: "/query/:name",
+        element: <Query />,
+        loader: ({ params }) =>
+          fetchLocalApi(`http://localhost:4903/query/${params.name}`),
       },
     ],
   },
