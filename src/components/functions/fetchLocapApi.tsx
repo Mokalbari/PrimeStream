@@ -9,8 +9,7 @@ const fetchLocalApi = async (url: string): Promise<APIDataType[] | null> => {
     const data: APIDataType[] = await response.json()
     return data
   } catch (error) {
-    console.error("Error fetching data:", error)
-    return null
+    throw new Error(`Error while loading API ${error}`)
   }
 }
 
