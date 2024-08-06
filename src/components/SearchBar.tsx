@@ -14,6 +14,7 @@ const SearchBar = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     searchQuery.trim() && navigate(`/query/${searchQuery}`)
+    setSearchQuery("")
   }
 
   return (
