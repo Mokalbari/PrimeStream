@@ -1,0 +1,26 @@
+.media-scroll {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 43%;
+
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+
+  scroll-snap-type: inline mandatory;
+
+  & > * {
+    scroll-snap-align: start;
+  }
+}
+
+@media (width < 640px) {
+  .media-scroll {
+    grid-auto-columns: 73%;
+  }
+}
+
+@media (640px <= width < 1024px) {
+  .media-scroll {
+    grid-auto-columns: 63%;
+  }
+}

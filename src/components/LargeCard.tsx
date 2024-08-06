@@ -28,11 +28,7 @@ const LargeCard = ({
     <div className="relative w-fit">
       <picture className="">
         <source srcSet={thumbnailLarge} media="(min-width: 640px)" />
-        <img
-          className="mb-2 rounded-xl"
-          src={thumbnailSmall}
-          alt="Le titre du film"
-        />
+        <img className="mb-2 rounded-xl" src={thumbnailSmall} alt={title} />
         <div className="absolute right-4 top-4 z-0 aspect-square rounded-full bg-black p-2 opacity-50 sm:p-3">
           {isFavorite ? (
             <BookmarkFullSVG onClick={handleClick} className="z-10" />
