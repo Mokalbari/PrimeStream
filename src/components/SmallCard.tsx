@@ -2,6 +2,7 @@ import { useState } from "react"
 import BookmarkEmptySVG from "./svg/BookmarkEmptySVG"
 import BookmarkFullSVG from "./svg/BookmarkFullSVG"
 import MovieSVG from "./svg/MovieSVG"
+import TVShowSVG from "./svg/TVShowSVG"
 
 type Props = {
   title: string
@@ -42,7 +43,13 @@ const SmallCard = ({
       </picture>
       <div>
         <p className="my-1 text-xs font-light opacity-75">
-          {year} · <MovieSVG className="inline" /> {category} · {rating}
+          {year} ·{" "}
+          {category === "Movie" ? (
+            <MovieSVG className="inline" />
+          ) : (
+            <TVShowSVG className="inline" />
+          )}{" "}
+          {category} · {rating}
         </p>
         <h3 className="text-sm font-medium sm:text-xl">{title}</h3>
       </div>

@@ -15,7 +15,14 @@ const DisplayHorizontalSection = ({ data, title }: Props) => {
           ?.filter(item => item.isTrending)
           .map(item => (
             <li key={item.title}>
-              <LargeCard />
+              <LargeCard
+                title={item.title}
+                thumbnailSmall={item.thumbnail.trending.small}
+                thumbnailLarge={item.thumbnail.trending.large}
+                year={item.year}
+                category={item.category}
+                rating={item.rating}
+              />
             </li>
           ))}
       </ul>

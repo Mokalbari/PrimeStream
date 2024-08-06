@@ -5,15 +5,14 @@ import type { APIDataType } from "../components/types/APIDataType"
 
 const Home = () => {
   const primeStreamSelection = useLoaderData() as APIDataType[]
+  const filterTrending = primeStreamSelection.filter(item => !item.isTrending)
 
   return (
     <>
-      {console.log(primeStreamSelection)}
-      {console.log(primeStreamSelection)}
       <DisplayHorizontalSection title="Trending" data={primeStreamSelection} />
       <DisplaySelectionSection
         title="Recommended for you"
-        data={primeStreamSelection}
+        data={filterTrending}
       />
     </>
   )
