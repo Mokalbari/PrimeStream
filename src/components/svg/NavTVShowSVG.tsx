@@ -1,4 +1,4 @@
-import type { SVGProps } from "./SVGProps"
+import type { SVGProps } from "../types/SVGProps"
 
 const NavTVShowSVG = ({ width = "20", height = "20", className }: SVGProps) => {
   return (

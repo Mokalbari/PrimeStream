@@ -1,4 +1,4 @@
-import type { SVGProps } from "./SVGProps"
+import type { SVGProps } from "../types/SVGProps"
 
 const PlaySVG = ({ width = "30", height = "30", className }: SVGProps) => {
   return (

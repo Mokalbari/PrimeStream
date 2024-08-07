@@ -1,4 +1,4 @@
-import type { SVGProps } from "./SVGProps"
+import type { SVGProps } from "../types/SVGProps"
 
 const MovieSVG = ({ width = "12", height = "12", className }: SVGProps) => {
   return (

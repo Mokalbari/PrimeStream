@@ -1,4 +1,4 @@
-import type { SVGProps } from "./SVGProps"
+import type { SVGProps } from "../types/SVGProps"
 
 const SearchSVG = ({ width = "32", height = "32", className }: SVGProps) => {
   return (
