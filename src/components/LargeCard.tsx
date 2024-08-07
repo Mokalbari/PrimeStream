@@ -1,9 +1,11 @@
 import { useState } from "react"
+import { motion } from "framer-motion"
 import BookmarkEmptySVG from "./svg/BookmarkEmptySVG"
 import BookmarkFullSVG from "./svg/BookmarkFullSVG"
 import MovieSVG from "./svg/MovieSVG"
 import TVShowSVG from "./svg/TVShowSVG"
 import "./styles/LargeCard.css"
+import PlaySVG from "./svg/PlaySVG"
 
 type Props = {
   title: string
@@ -12,6 +14,24 @@ type Props = {
   year: number
   category: string
   rating: string
+}
+
+const variants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.8,
+    transition: {
+      duration: 0.15,
+    },
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    x: "-35%",
+    transition: {
+      duration: 0.15,
+    },
+  },
 }
 
 const LargeCard = ({
@@ -23,18 +43,26 @@ const LargeCard = ({
   rating,
 }: Props) => {
   const [isFavorite, setIsFavorite] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
+
   const handleClick = () => setIsFavorite(!isFavorite)
+  const handleMouseEnter = () => setIsHovered(true)
+  const handleMouseLeave = () => setIsHovered(false)
 
   return (
-    <div className="large-card relative w-fit">
+    <div
+      className="large-card relative w-fit cursor-pointer"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <picture className="">
         <source srcSet={thumbnailLarge} media="(min-width: 640px)" />
         <img className="mb-2 rounded-xl" src={thumbnailSmall} alt={title} />
         <div className="absolute right-4 top-4 z-0 aspect-square rounded-full bg-black p-2 opacity-50 sm:p-3">
           {isFavorite ? (
-            <BookmarkFullSVG onClick={handleClick} className="z-10" />
+            <BookmarkFullSVG onClick={handleClick} className="z-30" />
           ) : (
-            <BookmarkEmptySVG onClick={handleClick} className="z-10" />
+            <BookmarkEmptySVG onClick={handleClick} className="z-30" />
           )}
         </div>
         <div className="absolute bottom-4 left-4 z-20 sm:bottom-6 sm:left-6 lg:bottom-8 lg:left-8">
@@ -50,6 +78,15 @@ const LargeCard = ({
           <h3 className="text-s font-medium sm:text-2xl">{title}</h3>
         </div>
       </picture>
+      <motion.div
+        className="play-overlay absolute left-1/2 top-1/2 z-20 flex origin-center items-center gap-4 rounded-full bg-white/25 py-2 pl-4 pr-6"
+        initial="hidden"
+        animate={isHovered ? "visible" : "hidden"}
+        variants={variants}
+      >
+        <PlaySVG />
+        <p className="font-bold">Play</p>
+      </motion.div>
     </div>
   )
 }
