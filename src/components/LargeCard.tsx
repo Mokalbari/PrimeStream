@@ -1,4 +1,5 @@
 import { useState } from "react"
+import axios from "axios"
 import { motion } from "framer-motion"
 import BookmarkEmptySVG from "./svg/BookmarkEmptySVG"
 import BookmarkFullSVG from "./svg/BookmarkFullSVG"
@@ -14,6 +15,7 @@ type Props = {
   year: number
   category: string
   rating: string
+  isBookmarked: boolean
 }
 
 const variants = {
@@ -41,11 +43,25 @@ const LargeCard = ({
   year,
   category,
   rating,
+  isBookmarked,
 }: Props) => {
-  const [isFavorite, setIsFavorite] = useState(false)
+  const [isFavorite, setIsFavorite] = useState(isBookmarked)
   const [isHovered, setIsHovered] = useState(false)
 
-  const handleClick = () => setIsFavorite(!isFavorite)
+  const handleClick = async () => {
+    try {
+      const response = await axios.put(
+        `http://localhost:4903/primeStream/${title}/bookmark`,
+        {
+          isBookmarked: !isFavorite,
+        },
+      )
+      setIsFavorite(response.data.item.isBookmarked)
+    } catch (error) {
+      throw new Error("Failed to update bookmark")
+    }
+  }
+
   const handleMouseEnter = () => setIsHovered(true)
   const handleMouseLeave = () => setIsHovered(false)
 

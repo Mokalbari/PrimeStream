@@ -50,6 +50,7 @@ const DisplayHorizontalSection = ({ data, title }: Props) => {
                 year={item.year}
                 category={item.category}
                 rating={item.rating}
+                isBookmarked={item.isBookmarked}
               />
             </li>
           ))}

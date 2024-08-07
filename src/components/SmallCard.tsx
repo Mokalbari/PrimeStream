@@ -1,4 +1,5 @@
 import { useState } from "react"
+import axios from "axios"
 import BookmarkEmptySVG from "./svg/BookmarkEmptySVG"
 import BookmarkFullSVG from "./svg/BookmarkFullSVG"
 import MovieSVG from "./svg/MovieSVG"
@@ -12,6 +13,7 @@ type Props = {
   year: number
   category: string
   rating: string
+  isBookmarked: boolean
 }
 
 const SmallCard = ({
@@ -22,10 +24,23 @@ const SmallCard = ({
   year,
   category,
   rating,
+  isBookmarked,
 }: Props) => {
-  const [isFavorite, setIsFavorite] = useState(false)
+  const [isFavorite, setIsFavorite] = useState(isBookmarked)
 
-  const handleClick = () => setIsFavorite(!isFavorite)
+  const handleClick = async () => {
+    try {
+      const response = await axios.put(
+        `http://localhost:4903/primeStream/${title}/bookmark`,
+        {
+          isBookmarked: !isFavorite,
+        },
+      )
+      setIsFavorite(response.data.item.isBookmarked)
+    } catch (error) {
+      throw new Error("Failed to update bookmark")
+    }
+  }
 
   return (
     <div className="relative w-fit">
