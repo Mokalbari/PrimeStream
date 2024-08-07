@@ -29,7 +29,7 @@ const variants = {
   visible: {
     opacity: 1,
     scale: 1,
-    x: "-35%",
+    x: "-50%",
     transition: {
       duration: 0.15,
     },
@@ -95,7 +95,7 @@ const LargeCard = ({
         </div>
       </picture>
       <motion.div
-        className="play-overlay absolute left-1/2 top-1/2 z-20 flex origin-center items-center gap-4 rounded-full bg-white/25 py-2 pl-4 pr-6"
+        className="absolute left-1/2 top-1/2 z-20 flex origin-center items-center gap-4 rounded-full bg-white/25 py-2 pl-4 pr-6"
         initial="hidden"
         animate={isHovered ? "visible" : "hidden"}
         variants={variants}
