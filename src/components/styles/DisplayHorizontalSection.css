@@ -22,3 +22,14 @@
     grid-auto-columns: 63%;
   }
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.media-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.media-scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

@@ -1,5 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom"
 import DisplaySelectionSection from "../components/DisplaySelectionSection"
+import AnimatedPage from "../components/AnimatedPage"
 import type { APIDataType } from "../components/types/APIDataType"
 
 const Query = () => {
@@ -9,13 +10,12 @@ const Query = () => {
   const { name } = useParams()
 
   return (
-    <>
-      {console.table(streamQuery)}
+    <AnimatedPage>
       <DisplaySelectionSection
         title={`Found ${resultLength} result${resultLength > 1 ? "s" : ""} for '${name}'.`}
         data={streamQuery}
       />
-    </>
+    </AnimatedPage>
   )
 }
 
