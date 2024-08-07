@@ -1,0 +1,9 @@
+.search-bar {
+  caret-color: #fc4747;
+
+  &:focus {
+    outline: none;
+    /* border: none;
+    border-bottom: 1px solid grey; */
+  }
+}
