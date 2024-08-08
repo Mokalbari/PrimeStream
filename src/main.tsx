@@ -18,28 +18,36 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetchLocalApi("http://localhost:4903/"),
+        loader: () =>
+          fetchLocalApi("https://main--primestream-server.netlify.app/"),
       },
       {
         path: "/movies",
         element: <Movies />,
-        loader: () => fetchLocalApi("http://localhost:4903/movies"),
+        loader: () =>
+          fetchLocalApi("https://main--primestream-server.netlify.app/movies"),
       },
       {
         path: "/tv-series",
         element: <TVSeries />,
-        loader: () => fetchLocalApi("http://localhost:4903/tvseries"),
+        loader: () =>
+          fetchLocalApi(
+            "https://main--primestream-server.netlify.app/tvseries",
+          ),
       },
       {
         path: "/bookmarked",
         element: <Bookmarked />,
-        loader: () => fetchLocalApi("http://localhost:4903/"),
+        loader: () =>
+          fetchLocalApi("https://main--primestream-server.netlify.app/"),
       },
       {
         path: "/query/:name",
         element: <Query />,
         loader: ({ params }) =>
-          fetchLocalApi(`http://localhost:4903/query/${params.name}`),
+          fetchLocalApi(
+            `https://main--primestream-server.netlify.app/query/${params.name}`,
+          ),
       },
     ],
   },
