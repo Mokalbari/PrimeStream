@@ -1,22 +1,7 @@
-# React TypeScript Tailwind Template
+# PrimeStream with React, TypeScript, Express
+I developed this as a "semi"-fullstack application. The API endpoints were created using Express and JavaScript in a separate repository hosted on Netlify.
+The front end was built using React, TypeScript, and Tailwind CSS. The data persistence is managed with the server.
+For simplicity, I chose not to include the login functionality, as it isn't easily deployable in a serverless environment.
 
-This project is a template for creating React applications using TypeScript, Tailwind CSS, and Vite.  
-It includes a basic setup with a focus on a clean development environment and efficient tooling.  
-
-## Features
-
-- **React 18** for building user interfaces.
-- **TypeScript** for static typing.
-- **Tailwind CSS** for utility-first CSS styling.
-- **Vite** as the build tool for fast development and build speed.
-- **Prettier** for code formatting.
-- **Biome** for linting.
-
-## Getting Started
-
-### Prerequisites
-
-Make sure you have the following installed on your machine:
-
-- Node.js (>=14.x)
-- pnpm (package manager)
+The biggest challenge I faced was implementing horizontal scrolling. I had to conduct extensive research to find a solution.
+At the end of the day, it was as simple as using a grid with overflow hidden.
